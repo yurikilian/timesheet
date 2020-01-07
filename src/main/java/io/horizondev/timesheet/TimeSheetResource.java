@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 public class TimeSheetResource {
 
     @Inject
-    private TimeSheetService timeSheetService;
+    TimeSheetService timeSheetService;
 
     @GET
     public Response get() {
