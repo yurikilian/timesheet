@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  timesheet-db:
+    image: postgres:11-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: timesheet
+    networks:
+      - timesheet-local-network
+
+networks:
+  timesheet-local-network:
