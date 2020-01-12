@@ -49,7 +49,12 @@ public class TimeSheetResourceTest {
         data.setStartDate(LocalDateTime.now());
         data.setEndDate(LocalDateTime.now());
 
-        var response = given().body(data).contentType(ContentType.JSON).when().post();
+        
+
+        var response = given()
+            .body(JsonbBuilder.create().toJson(data))
+            .contentType(ContentType.JSON)
+                .when().post("/timesheet");
 
         System.out.println(response.asString());
 
