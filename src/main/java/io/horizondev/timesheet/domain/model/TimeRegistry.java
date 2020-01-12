@@ -1,20 +1,33 @@
 package io.horizondev.timesheet.domain.model;
 
-
 import io.horizondev.timesheet.domain.entity.TimeRegistryEntity;
 import io.quarkus.runtime.annotations.RegisterForReflection;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @RegisterForReflection
 public class TimeRegistry {
 
+    @NotBlank
+    private String description;
+
+    @NotNull
     private LocalDateTime startDate;
+
+    @NotNull
     private LocalDateTime endDate;
 
     public TimeRegistry() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public TimeRegistry(TimeRegistryEntity entity) {

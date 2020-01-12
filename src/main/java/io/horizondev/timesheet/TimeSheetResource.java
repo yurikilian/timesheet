@@ -1,8 +1,10 @@
 package io.horizondev.timesheet;
 
+import io.horizondev.timesheet.domain.model.TimeRegistry;
 import io.horizondev.timesheet.service.TimeSheetService;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,11 +19,11 @@ public class TimeSheetResource {
 
     @GET
     public Response get() {
-        return Response.ok(timeSheetService.create()).build();
+        return Response.ok(timeSheetService.get()).build();
     }
 
     @POST
-    public Response register() {
-        return Response.noContent().build();
+    public Response register(@Valid final TimeRegistry registry) {
+        return Response.ok(timeSheetService.create(registry)).build();
     }
 }

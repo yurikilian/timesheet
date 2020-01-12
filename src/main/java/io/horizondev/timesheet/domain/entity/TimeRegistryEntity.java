@@ -10,9 +10,18 @@ public class TimeRegistryEntity extends PanacheEntity {
 
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private String description;
 
     public LocalDateTime getStartDate() {
         return startDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setStartDate(LocalDateTime startDate) {
