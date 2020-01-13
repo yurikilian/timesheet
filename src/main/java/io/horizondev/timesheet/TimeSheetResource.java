@@ -1,5 +1,6 @@
 package io.horizondev.timesheet;
 
+import io.horizondev.timesheet.domain.exception.TimeRegistryInvalidDateException;
 import io.horizondev.timesheet.domain.model.TimeRegistry;
 import io.horizondev.timesheet.service.TimeSheetService;
 
@@ -19,7 +20,9 @@ public class TimeSheetResource {
 
     @GET
     public Response get() {
-        return Response.ok(timeSheetService.get()).build();
+
+        throw new TimeRegistryInvalidDateException("Invalid Time");
+        //return Response.ok(timeSheetService.get()).build();
     }
 
     @POST

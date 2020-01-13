@@ -43,13 +43,10 @@ public class TimeSheetResourceTest {
 
     @Test
     public void shouldCreateTimeRegistryGivenCorrectRequest() {
-
         final var data = new TimeRegistry();
         data.setDescription("description");
         data.setStartDate(LocalDateTime.now());
         data.setEndDate(LocalDateTime.now());
-
-        
 
         var response = given()
             .body(JsonbBuilder.create().toJson(data))
